@@ -5,15 +5,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valentine 💘</title>
+
+    <!-- ✅ Only font change (Poppins like the screenshot theme) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --pink1: #ffd6e8;
-            --pink2: #ffe8f2;
-            --ink: #1e1e1e;
-            --muted: #444;
+            /* ✅ same vibe as the screenshot: soft pink background */
+            --pink1: #fde2ea;
+            --pink2: #fbe7ef;
+
+            /* ✅ font colors like screenshot */
+            --ink: #7a1f3d;      /* main text */
+            --muted: #b44a6f;    /* sub text */
+
             --yes: #e83a5a;
             --yes2: #ff5c7a;
-            --card: rgba(255, 255, 255, 0.78);
+
+            --card: rgba(255, 255, 255, 0.82);
             --shadow: 0 18px 60px rgba(0, 0, 0, 0.12);
         }
 
@@ -23,12 +34,12 @@
 
         body {
             margin: 0;
-            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
             color: var(--ink);
             background:
                 radial-gradient(1200px 600px at 20% 20%, var(--pink1), transparent 60%),
                 radial-gradient(1000px 600px at 80% 70%, var(--pink2), transparent 55%),
-                linear-gradient(135deg, #ffeef6, #fbe7ff);
+                linear-gradient(135deg, #fff0f6, #fde7f2);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -73,7 +84,7 @@
 
         .card {
             background: var(--card);
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(10px);
             border-radius: 26px;
             box-shadow: var(--shadow);
@@ -97,6 +108,7 @@
             font-size: clamp(34px, 5vw, 58px);
             line-height: 1.05;
             letter-spacing: .3px;
+            color: var(--ink);
         }
 
         .sub {
@@ -104,10 +116,12 @@
             max-width: 720px;
             font-size: clamp(16px, 2.1vw, 20px);
             color: var(--muted);
+            font-weight: 500;
         }
 
         .name {
             font-weight: 800;
+            color: #d6336c; /* ✅ cute highlight */
         }
 
         .row {
@@ -117,16 +131,13 @@
             gap: 18px;
             margin-top: 18px;
             min-height: 110px;
-            /* room for NO to move */
             position: relative;
         }
 
         .no-slot {
             position: relative;
             width: 400px;
-            /* ✅ bigger area to run */
             height: 400px;
-            /* ✅ bigger area to run */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -136,9 +147,7 @@
         .yes-slot {
             position: relative;
             width: 400px;
-            /* ✅ bigger area to run */
             height: 400px;
-            /* ✅ bigger area to run */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -147,6 +156,10 @@
         .no {
             position: static;
             min-width: 120px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(122, 31, 61, 0.18);
+            color: #6b1b36;
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
         }
 
         .no.evading {
@@ -154,10 +167,7 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            /* ✅ start centered */
         }
-
-
 
         button {
             border: 0;
@@ -167,6 +177,8 @@
             transition: transform .08s ease, box-shadow .15s ease, background .2s ease;
             user-select: none;
             -webkit-tap-highlight-color: transparent;
+            font-family: inherit;
+            color: #6b1b36;
         }
 
         button:active {
@@ -186,8 +198,6 @@
             cursor: pointer;
         }
 
-
-
         .tiny-hearts {
             display: inline-flex;
             gap: 6px;
@@ -204,12 +214,15 @@
             font-size: clamp(44px, 6vw, 76px);
             margin: 8px 0 10px;
             letter-spacing: 1px;
+            color: var(--ink);
+            font-weight: 800;
         }
 
         .yayline {
             font-size: clamp(18px, 2.2vw, 22px);
             color: var(--muted);
             margin: 0 0 18px;
+            font-weight: 500;
         }
 
         .gifbox {
@@ -231,6 +244,8 @@
         .love {
             margin-top: 18px;
             font-size: 22px;
+            color: #c2255c;
+            font-weight: 600;
         }
 
         .confetti {
@@ -269,7 +284,7 @@
         .hint {
             margin-top: 16px;
             font-size: 13px;
-            color: rgba(0, 0, 0, 0.45);
+            color: rgba(122, 31, 61, 0.45);
         }
     </style>
 </head>
@@ -286,6 +301,7 @@
             <p class="sub">Choose wisely. (The “No” button is… shy.)</p>
 
             <div class="row" id="playground">
+                <!-- ✅ DO NOT change yes-slot / no-slot structure -->
                 <div class="yes-slot" id="noSlot">
                     <button class="yes" id="yesBtn">YES</button>
                 </div>
@@ -306,17 +322,18 @@
             </div>
 
             <div class="love">I love you ❤️</div>
+            <div class="love" id="whoself">I love you ❤️</div>
+
         </div>
     </div>
 
     <div class="confetti hidden" id="confetti" aria-hidden="true"></div>
 
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const myParam = urlParams.get('name');
-        // ✅ Change name here
-        const WIFE_NAME = myParam;
 
+        const urlParams = new URLSearchParams(window.location.search);
+        const WIFE_NAME = urlParams.get('valentineName');
+        const selfName = urlParams.get('name');
         // ✅ Tweak how hard NO is to click
         const EVADE_DISTANCE = 50;
         const EDGE_PADDING = 18;
@@ -325,6 +342,8 @@
         let evasionStarted = false;
 
         document.getElementById("who").textContent = WIFE_NAME;
+        document.getElementById("whoself").textContent = `~ ${selfName}`;
+
 
         const askCard = document.getElementById("askCard");
         const yayCard = document.getElementById("yayCard");
@@ -350,7 +369,7 @@
             e.preventDefault();
             moveNoRandom(true);
 
-            if(isMobileLike()){
+            if (isMobileLike()) {
                 setFunnyNoText()
             }
         });
@@ -358,9 +377,9 @@
         noBtn.addEventListener("mouseenter", (e) => {
             e.preventDefault();
             moveNoRandom(true)
-            if(!setFunnyNoText()){
+            if (!setFunnyNoText()) {
                 setFunnyNoText()
-            } 
+            }
         });
 
         yesBtn.addEventListener("click", () => {
@@ -399,22 +418,19 @@
             }, 1200);
 
         }
+
         function isMobileLike() {
-            // “coarse pointer” ~= touch-first devices (phones/tablets)
             const coarsePointer = matchMedia("(pointer: coarse)").matches;
             const noHover = matchMedia("(hover: none)").matches;
-
-            // Viewport heuristic (helps separate tablets/desktop touch screens)
             const smallViewport = Math.min(window.innerWidth, window.innerHeight) <= 768;
-
             return (coarsePointer && noHover) || smallViewport;
         }
+
         function moveNoRandom(extraFar = false) {
             const bounds = noSlot.getBoundingClientRect();
             const bw = bounds.width;
             const bh = bounds.height;
 
-            // Use bounding box (more reliable than offsetWidth)
             const br = noBtn.getBoundingClientRect();
             const w = br.width;
             const h = br.height;
@@ -422,12 +438,11 @@
             if (!evasionStarted) {
                 evasionStarted = true;
                 noBtn.classList.add("evading");
-                noBtn.style.transform = ""; // remove centering transform once moving
+                noBtn.style.transform = "";
                 noBtn.style.left = `${(bw - w) / 2}px`;
                 noBtn.style.top = `${(bh - h) / 2}px`;
             }
 
-            // ✅ Ensure we have space to move
             const maxX = Math.max(0, bw - w);
             const maxY = Math.max(0, bh - h);
 
@@ -439,8 +454,6 @@
             noBtn.style.top = `${y}px`;
 
         }
-
-
 
         function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 
